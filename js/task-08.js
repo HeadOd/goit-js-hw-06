@@ -10,16 +10,17 @@ function onFormSubmit(event) {
     const { elements: { email, password }
     } = event.currentTarget;
 
+    const formObj = {
+    [email.type]: email.value,
+    [password.type]: password.value,
+    };
+
     if (!email.value || !password.value) {
         alert('Все поля должны быть заполнены!');
-    };
-
-    const formObj = {
-        [email.type]: email.value,
-        [password.type]: password.value,
-    };
-
-    console.log(formObj);
-    event.currentTarget.reset();
+    } else {
+        console.log(formObj);
+        event.currentTarget.reset();
+     }
+    
 };
 
